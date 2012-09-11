@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *'); 
 
-$externURL = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/";  //$externURL = "http://localhost:8888/tests/imageproxy/"; 
+$externURL = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/";  //$externURL = "http://localhost:8888/tests/imageproxy/"; 
 $password = "CHANGEME"; //enter password for api here
 
 
@@ -11,6 +11,7 @@ $p = $_GET['p'];
 if ($password == $p){
 
 	$externURL = str_replace("//", "/", $externURL);
+	$externURL = "http://".$externURL;
 	
 	$fileextension = explode(".", basename($url));
 	$fileextension = end($fileextension);
