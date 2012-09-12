@@ -15,6 +15,8 @@ if ($password == $p){
 	
 	$fileextension = explode(".", basename($url));
 	$fileextension = end($fileextension);
+	$fileextension = explode("?", $fileextension);
+	$fileextension = $fileextension[0];
 	$internurl = md5($url).".".$fileextension;
 	$filename = $internurl;
 	$data = file_get_contents($url);
